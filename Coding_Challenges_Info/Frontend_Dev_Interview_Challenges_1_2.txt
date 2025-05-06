@@ -1,0 +1,60 @@
+🔥 Challenge #1: Job Listing Card Component (React)
+
+Scenario:
+You’ve been hired to help improve a job board site. The company wants reusable, readable components that match modern standards.
+
+🧩 Requirements:
+Build a JobCard React component that:
+- Accepts a prop with job details (title, company, location, salary range, remote status).
+- Displays the info cleanly and accessibly.
+- Highlights whether the role is remote or onsite.
+- Has a "Save Job" button with a simple toggle (e.g. heart icon or text changes on click).
+
+🛠 Tech Constraints:
+- Use JavaScript (not TypeScript).
+- Functional components with hooks.
+- No external component libraries (e.g., MUI, Bootstrap).
+- You can style it with plain CSS or inline styles.
+
+💎 Bonus (Optional):
+- Add a filter bar (e.g. filter by location or remote).
+- Make it mobile-friendly (responsive layout).
+- Add a unit test using Jest/React Testing Library.
+
+✅ Submission:
+- Submit component code, optionally with mock data and a parent wrapper to render multiple cards.
+
+
+============================================================
+
+🧠 Challenge #2: Group Anagrams
+
+Scenario:
+You’ve been asked to help organize search queries. Your task is to group words that are anagrams of each other—i.e., made from the same letters in any order.
+
+🧩 Problem:
+Write a function:
+function groupAnagrams(words) {
+  // your code here
+}
+
+Input:
+An array of strings like:
+["listen", "silent", "enlist", "hello", "ohlle", "world"]
+
+Output:
+A nested array where each subarray contains anagrams:
+[
+  ["listen", "silent", "enlist"],
+  ["hello", "ohlle"],
+  ["world"]
+]
+
+🛠 Constraints:
+- Don’t use any external libraries.
+- Optimize for readability and clarity.
+- Bonus: handle edge cases like ["", "", "a", "a"].
+
+💡 Tips:
+- Use a hash map (object) to group.
+- Sorting strings might help you identify anagrams.
