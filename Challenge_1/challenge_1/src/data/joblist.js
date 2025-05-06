@@ -1,5 +1,6 @@
 const jobData = [
     {
+        'jobID':981,
         'title':'Software Developer',
         'company': 'AnyTime Software',
         'location': 'NYC, NY',
@@ -7,6 +8,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':45,
         "title": "Systems Administrator IV",
         "company": "Topicshots",
         'location': 'San Diego, CA',
@@ -14,6 +16,7 @@ const jobData = [
         "remote": true
     },
     {
+        'jobID':896,
         "title": "Quality Control Specialist",
         "company": "Feedfire",
         'location': 'Los Angeles, CA',
@@ -21,6 +24,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':53,
         "title": "Nurse",
         "company": "Yodo",
         'location': 'Branson, MO',
@@ -28,6 +32,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':929,
         "title": "Tax Accountant",
         "company": "Babbleblab",
         'location': 'Phoenix, AZ',
@@ -35,6 +40,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':812,
         "title": "Research Associate",
         "company": "Tekfly",
         'location': 'Miami, FL',
@@ -42,6 +48,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':537,
         "title": "Project Manager",
         "company": "Fadeo",
         'location': 'Philadelphia, PA',
@@ -49,6 +56,7 @@ const jobData = [
         "remote": false
     },
     {
+        'jobID':831,
         "title": "Research Assistant III",
         "company": "Wikizz",
         'location': 'NYC, NY',
@@ -56,6 +64,7 @@ const jobData = [
         "remote": true
     },
     {
+        'jobID':854,
         "title": "Geological Engineer",
         "company": "Dablist",
         'location': 'Baltimore, MD',
@@ -63,6 +72,7 @@ const jobData = [
         "remote": true
     },
     {
+        'jobID':73,
         "title": "VP Sales",
         "company": "Dablist",
         'location': 'Bangor, ME',
@@ -70,6 +80,7 @@ const jobData = [
         "remote": true
     },
     {
+        'jobID':174,
         "title": "Clinical Specialist",
         "company": "Trilia",
         'location': 'Bozeman, MT',
