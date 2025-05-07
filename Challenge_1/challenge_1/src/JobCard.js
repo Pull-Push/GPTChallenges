@@ -2,11 +2,12 @@ import React from 'react';
 import '../src/static/JobCard.css';
 
 function toggleFavorite(e){
-    console.log('clicked', e.target.style)
-    if(e.target.style.color === '') {
-        e.target.style.color = 'red'
+    console.log('clicked style', e.target.style)
+    console.log('text', e.target.innerHTML)
+    if(e.target.innerHTML === '♡ SAVE JOB ♡' ) {
+        e.target.innerHTML = '♥ JOB FAVORITED! ♥'
     }else{
-        e.target.style.color = ''
+        e.target.innerHTML = '♡ SAVE JOB ♡'
     }
 }
 
@@ -25,7 +26,7 @@ export default function JobCard(props){
                 ) : (
                     <p>Onsite Required</p>
                 )}
-                <h4 id={card.jobID} onClick={toggleFavorite}>SAVE JOB</h4>
+                <h4 id={card.jobID} onClick={toggleFavorite}>♡ SAVE JOB ♡</h4>
             </div>
             )}
 
