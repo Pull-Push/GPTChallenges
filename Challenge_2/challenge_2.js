@@ -31,18 +31,18 @@
 // - Sorting strings might help you identify anagrams.
 
 function groupAnagrams(words){
-    let keyOutput = {}
+    let output = {}
     for(let i=0; i<words.length; i++){
         let temp = Array.from(words[i]).sort().join("");
         if(temp.length === 0 || temp.length === 1){
             continue
-            }else if(!(temp in keyOutput)){
-                keyOutput[[temp]]= [words[i]]
+            }else if(!(temp in output)){
+                output[[temp]]= [words[i]]
             }else{
-                keyOutput[temp].push(words[i])
+                output[temp].push(words[i])
             }
     }
-    return Object.values(keyOutput)
+    return Object.values(output)
 }
 
-console.log(groupAnagrams(["listen", "silent", "enlist", "hello", "ohlle", "world", 'a', ""]))
+console.log(groupAnagrams(["listen", 'cat', "enlist", "hello", 'act', "ohlle", "world", 'a', "", 'tac',"silent"]))
