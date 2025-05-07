@@ -33,16 +33,16 @@
 function groupAnagrams(words){
     let output = {}
     for(let i=0; i<words.length; i++){
-        let temp = Array.from(words[i]).sort().join("");
-        if(temp.length === 0 || temp.length === 1){
+        let temp = Array.from(words[i]).sort().join(""); //turn string into sorted array and then re-join into string
+        if(temp.length === 0 || temp.length === 1){ //edge casing to eliminate single letters and no letters
             continue
-            }else if(!(temp in output)){
+            }else if(!(temp in output)){ //if sorted string is not a key in output, then create one with word as value
                 output[[temp]]= [words[i]]
-            }else{
+            }else{ //if soted string IS a key in output, push word to value array
                 output[temp].push(words[i])
             }
     }
-    return Object.values(output)
+    return Object.values(output) //return sorted values
 }
 
 console.log(groupAnagrams(["listen", 'cat', "enlist", "hello", 'act', "ohlle", "world", 'a', "", 'tac',"silent"]))
