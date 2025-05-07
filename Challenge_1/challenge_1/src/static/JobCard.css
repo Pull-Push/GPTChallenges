@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1A3131;
+
+  }
+
+.mainDiv{
+  margin: 25px auto;
+  max-width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.cardDiv{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  min-width: 320px;
+  border: 1px solid #4F517D;
+  border-radius: 5%;
+  background-color: #479A9A;
+  box-shadow: 2px 5px 5px black;
+  position: relative;
+}
+
+.cardDiv:hover{
+  box-shadow: 10px 5px 5px black;
+  bottom: 2px;
+}
+
+.cardDiv h4{
+  cursor: pointer;
+}
