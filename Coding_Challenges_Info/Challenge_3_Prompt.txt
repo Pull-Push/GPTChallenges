@@ -1,0 +1,30 @@
+Challenge #3: Job Board Filter + Search UI
+
+Scenario:
+You’ve been hired to improve the job board UI. Add the ability to filter jobs by location, remote status, and search job titles or companies.
+
+🎯 Requirements:
+1. Display job cards (same as before).
+2. Add text input to search by job title or company (case-insensitive).
+3. Add dropdown or radio filter:
+   - All Jobs
+   - Remote Only
+   - Onsite Only
+4. Filters must combine (e.g., “engineer” + remote only).
+
+🛠 Tech Constraints:
+- React with JavaScript (no TypeScript).
+- No external component libraries.
+- Use `useState` and optionally `useEffect`.
+- Use provided `jobData` array as mock input.
+
+💎 Bonus Goals:
+- Show “No jobs match your search” message.
+- Style input + filters to look unified.
+- Add “Clear filters” button.
+- Add test coverage for filtering logic (bonus).
+
+✅ Submission:
+- JobCard + any updated components.
+- Filtering/search UI.
+- CSS if changed.
