@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import JobCard from './JobCard';
+import JobList from './JobList';
 import reportWebVitals from './reportWebVitals';
-import { jobData } from './data/joblist';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <JobCard jobInfo={jobData}/>
+    <JobList/>
   </React.StrictMode>
 );
 
