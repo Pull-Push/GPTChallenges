@@ -25,9 +25,14 @@ export default function JobList(){
     let cards = jobData
     return(
         <div className='mainDiv'>
-            { cards.map((card, index) => 
-                <JobCard key={index} card={card} handleFavorite={handleFavorite} favorites={favorites}/>
-            )}
+            {/* wrapping everything in brackets is anther way to do the conditional rendering.  */}
+            { cards.map((card, index) => { 
+                const stuff = true;
+                return (
+
+                    <JobCard key={index} card={card} handleFavorite={handleFavorite} favorites={favorites}/>
+                )
+})}
         </div>
     )
 }
