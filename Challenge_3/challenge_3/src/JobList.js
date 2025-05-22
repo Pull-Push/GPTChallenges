@@ -11,7 +11,7 @@ export default function JobList(){
     const [remoteCards, setRemoteCards ] = useState(jobData)
     const [ shownCards, setShownCards ] = useState([])
 
-    
+
     const handleFavorite = (jobID) => {
         setFavorites((prevFavorites) =>
             prevFavorites.includes(jobID)
@@ -38,7 +38,7 @@ export default function JobList(){
             setShownCards(tempJobs)
         }
         console.log(`shown cards are ${shownCards}`)
-
+        console.log('shown length', shownCards.length)
     }, [remoteCards, filterCards])
 
     const handleRemote = (e) =>{
@@ -58,10 +58,10 @@ export default function JobList(){
         console.log(`search filter is ${e}`)
         for(let x of cards){
             for(let y of Object.values(x)){
-                let stringed = y.toString()
+                let stringed = y.toString().toLowerCase()
                 // console.log('stringed', stringed)
                 // console.log('search', e)
-                if(stringed.includes(e) && (!(filterJobs.includes(x)))){
+                if(stringed.includes(e.toLowerCase()) && (!(filterJobs.includes(x)))){
                     // console.log('MATCH FOUND!')
                     filterJobs.push(x)
                 }
@@ -71,9 +71,13 @@ export default function JobList(){
         }   
     }
 
+    const handleClear = () =>{
+        window.location.reload()
+    }
+
     return(
         <div className='mainDiv'>
-            <div>
+            <div className='filterDiv'>
                 <label htmlFor="seach">Filter Jobs</label>
                 <input type="text" name="search" id="search" onChange={e => handleFilter(e.target.value)}/>
                 <label htmlFor="jobType">Job Type</label>
@@ -82,12 +86,16 @@ export default function JobList(){
                     <option value="onsite"> Onsite Only</option>
                     <option value="remote">Remote Only</option>
                 </select>
+                <button onClick={handleClear}>CLEAR FILTERS</button>
             </div>
             <div className='indyCard'>
-                {/* ADD NO JOBS SHOWN! */}
-            { shownCards.map((card, index) =>
+            {/* ADD NO JOBS SHOWN! */}
+            {shownCards.length === 0 ? (
+                <h2 id='noMatch'>NO JOBS MATCH SEARCH!</h2>
+            ) : (
+                shownCards.map((card, index) => (
                     <JobCard key={index} card={card} handleFavorite={handleFavorite} favorites={favorites}/>
-        
+                ))
             )}
             </div>
         </div>
