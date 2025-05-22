@@ -6,7 +6,11 @@ import JobCard from './JobCard';
 export default function JobList(){
     let cards = jobData
     const [favorites, setFavorites ] = useState([]) //integer array
+    
     const [filterCards, setFilterCards ] = useState(jobData)
+    const [remoteCards, setRemoteCards ] = useState(jobData)
+    const [ shownCards, setShownCards ] = useState([])
+
     
     const handleFavorite = (jobID) => {
         setFavorites((prevFavorites) =>
@@ -16,44 +20,56 @@ export default function JobList(){
         );
     };
     
+    useEffect(() =>{
+        let tempJobs = []
+        console.log(`remote cards ${remoteCards}`)
+        console.log(`filter cards ${filterCards}`)
+        
+        for(let x of remoteCards){
+            // console.log(x.jobID)
+            for(let y of filterCards){
+                // console.log(y.jobID)
+                if(x.jobID === y.jobID){
+                    // console.log('FOUND ONE!')
+                    tempJobs.push(x)
+                }
+            }
+            // console.log(`temp ${tempJobs}`)
+            setShownCards(tempJobs)
+        }
+        console.log(`shown cards are ${shownCards}`)
+
+    }, [remoteCards, filterCards])
 
     const handleRemote = (e) =>{
         //TODO Need to check filter search field on click
-        console.log('remote status', e)
+        console.log(`remote pref is ${e}`)
         if(e === 'all'){
-            setFilterCards(cards.filter((card) => card.remote === true || card.remote === false))
+            setRemoteCards(cards.filter((card) => card.remote === true || card.remote === false))
         }else if(e === 'remote'){
-            setFilterCards(cards.filter((card) => card.remote === true))
+            setRemoteCards(cards.filter((card) => card.remote === true))
         }else{
-            setFilterCards(cards.filter((card) => card.remote === false))
+            setRemoteCards(cards.filter((card) => card.remote === false))
         }
-        console.log(filterCards)
     }
 
     const handleFilter = (e) =>{
-        console.log('current filtered cards', filterCards)
-        let workingFilter = e
-        let shownCards = filterCards
-        if(workingFilter.length ===  0){
-            shownCards = filterCards
-        } else {   
-            for(let x of shownCards){
-                // console.log('shown x', x)
-                const values = Object.values(x) //GET ALL VALUES OF CARDS OBJECTS
-                for(let y of values){ //GET INDY CARD VALUES
-                    // console.log('shown y', y)
-                    let stringed = y.toString() //STRING CARD VALUES TO FIX NUMBER AND BOOLEAN ISSUE
-                    // console.log( 'stringed y', stringed)
-                    if(stringed.includes(workingFilter) && (!(shownCards.includes(x)))){ //FILTER CARDS and avoid dupes
-                        shownCards.push(x) //ADD CARD TO FILTER ARRAY
-                    }
+        let filterJobs = []
+        console.log(`search filter is ${e}`)
+        for(let x of cards){
+            for(let y of Object.values(x)){
+                let stringed = y.toString()
+                // console.log('stringed', stringed)
+                // console.log('search', e)
+                if(stringed.includes(e) && (!(filterJobs.includes(x)))){
+                    // console.log('MATCH FOUND!')
+                    filterJobs.push(x)
                 }
+                setFilterCards(filterJobs)
             }
-        }
-        // console.log('shown cards final', shownCards)
-    setFilterCards(shownCards)
+            // console.log('filterjobs', filterJobs)
+        }   
     }
-
 
     return(
         <div className='mainDiv'>
@@ -68,8 +84,8 @@ export default function JobList(){
                 </select>
             </div>
             <div className='indyCard'>
-
-            { filterCards.map((card, index) =>
+                {/* ADD NO JOBS SHOWN! */}
+            { shownCards.map((card, index) =>
                     <JobCard key={index} card={card} handleFavorite={handleFavorite} favorites={favorites}/>
         
             )}
